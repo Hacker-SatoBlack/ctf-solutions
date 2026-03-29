@@ -89,53 +89,6 @@ en el Objetivo Linux. (Usuarios encontrados: root, dale, gyles y
 ubuntu).
 ![](media/media/image20.png)
 
-**[root:x:0:0:root:/root:/bin/bash]{.mark}**
-daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting
-System(admin):/var/lib/gnats:/usr/sbin/nologin
-nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-systemd-network:x:100:102:systemd Network
-Management,,,:/run/systemd/netif:/usr/sbin/nologin
-systemd-resolve:x:101:103:systemd
-Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
-syslog:x:102:106::/home/syslog:/usr/sbin/nologin
-messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
-\_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
-lxd:x:105:65534::/var/lib/lxd/:/bin/false
-uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
-dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
-landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
-pollinate:x:109:1::/var/cache/pollinate:/bin/false
-**[dale:x:1000:1000:anon,,,:/home/dale:/bin/bash]{.mark}**
-**[gyles:x:1001:1001::/home/gyles:/bin/bash]{.mark}**
-ftpuser:x:1002:1002::/home/ftpuser:/bin/sh ftp:x:110:116:ftp
-daemon,,,:/srv/ftp:/usr/sbin/nologin
-sshd:x:111:65534::/run/sshd:/usr/sbin/nologin
-systemd-timesync:x:112:117:systemd Time
-Synchronization,,,:/run/systemd:/usr/sbin/nologin tss:x:113:120:TPM
-software stack,,,:/var/lib/tpm:/bin/false
-tcpdump:x:114:121::/nonexistent:/usr/sbin/nologin
-fwupd-refresh:x:115:122:fwupd-refresh
-user,,,:/run/systemd:/usr/sbin/nologin
-systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
-usbmux:x:116:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
-ssm-user:x:1003:1005::/home/ssm-user:/bin/sh
-**[ubuntu:x:1004:1007:Ubuntu:/home/ubuntu:/bin/bash]{.mark}**
-
 Se intenta con la ruta "/etc/shadow" donde se encuentra los password,
 sin nos nos arroja nada, posiblemente por que el usuario donde se
 encuentra esta vulnerabilidad no tiene privilegios.
@@ -145,82 +98,45 @@ Se realiza la captura con burpsuite para una manipulación manual de los
 Request HTTP.
 ![](media/media/image22.png)
 
-Se lleva al módulo "Repeater" para probar varias rutas, entre ellas se
-encontró la clave privada ssh (id_rsa) del usuario "**dale**" en la
-ruta: "**/etc/ssh/sshd_config**"
+Se lleva al módulo "Repeater" para probar varias rutas, entre ellas se encontró la clave privada ssh (id_rsa) del usuario "**dale**" en la ruta: "**/etc/ssh/sshd_config**"
 ![](media/media/image23.png)
 ![](media/media/image24.png)
 
-Debido a que tiene el carácter "#" delante de cada fila, se utiliza
-notepad para eliminarlos.
+Debido a que tiene el carácter "#" delante de cada fila, se utiliza notepad para eliminarlos.
 ![](media/media/image25.png)
 
-Se crea el archivo "id_rsa" y se pega la clave privada ssh encontrada.
-Comandos: **nano id_rsa** y **cat id_rsa**
+Se crea el archivo "id_rsa" y se pega la clave privada ssh encontrada. Comandos: **nano id_rsa** y **cat id_rsa**
 ![](media/media/image26.png)
 
-Se cambia privilegios al archivo "id_rsa" para que sea accesible
-únicamente por el usuario del Kali (Comando: "**chmod 600 idrsa**").
-Luego de accede directamente por ssh con el comando: "**ssh -i id_rsa
-dale@10.65.139.182**".
+Se cambia privilegios al archivo "id_rsa" para que sea accesible únicamente por el usuario del Kali (Comando: "**chmod 600 idrsa**"). Luego de accede directamente por ssh con el comando: "**ssh -i id_rsa dale@10.65.139.182**".
 ![](media/media/image27.png)
 
-Una vez dentro, revisamos los archivos que tiene y se encuentra el
-archivo "**user.txt**", al visualizar su contenido se encuentra la 1ra
-Flag: **THM{6Y0TXHz7c2d}**
+Una vez dentro, revisamos los archivos que tiene y se encuentra el archivo "**user.txt**", al visualizar su contenido se encuentra la 1ra Flag: **THM{6Y0TXHz7c2d}**
 ![](media/media/image28.png)
 
-Se escribe el comando "**sudo -l**" para listar qué comandos puedes
-ejecutar como sudo y se encuentra la ruta "**/home/gyles/admin_checks**"
-accesible.
+Se escribe el comando "**sudo -l**" para listar qué comandos puedes ejecutar como sudo y se encuentra la ruta "**/home/gyles/admin_checks**" accesible.
 ![](media/media/image29.png)
 
-Se analiza el archivo: "**/home/gyles/admin_checks"**, el cual solicita
-dos entradas al usuario. La 1era entrada se almacena en la variable
-"**\$name**" y se guarda en el archivo /var/stats/stats.txt. La segunda
-entrada se almacena en la variable "**\$error"** y posteriormente es
-ejecutada directamente como comando en el sistema (\$error), lo que
-introduce una vulnerabilidad de tipo **command injection**, ya que no
-existe validación de la entrada del
-usuario.
+Se analiza el archivo: "**/home/gyles/admin_checks"**, el cual solicita dos entradas al usuario. La 1era entrada se almacena en la variable "**\$name**" y se guarda en el archivo /var/stats/stats.txt. La segunda entrada se almacena en la variable "**\$error"** y posteriormente es
+ejecutada directamente como comando en el sistema (\$error), lo que introduce una vulnerabilidad de tipo **command injection**, ya que no existe validación de la entrada del usuario.
 ![](media/media/image29.png)
 
-Se ejecuta dicho archivo con el usuario **gyles**: "**sudo -u gyles
-/home/gyles/admin_checks**", en la 1era entrada se coloca cualquier
-texto y en la 2da escribimos "**/bin/bash**" para obtener una shell
-luego ENTER y ENTER. Escribimos "**whoami**" y se cambio al usuario
-**gyles**.
+Se ejecuta dicho archivo con el usuario **gyles**: "**sudo -u gyles /home/gyles/admin_checks**", en la 1era entrada se coloca cualquier texto y en la 2da escribimos "**/bin/bash**" para obtener una shell luego ENTER y ENTER. Escribimos "**whoami**" y se cambio al usuario **gyles**.
 ![](media/media/image30.png)
 
-Ejecutamos el comando: **python3 -c \'import pty;
-pty.spawn(\"/bin/bash\")\'**, para obtener una shell interactiva. Luego
-con el comando "**id**" validamos que pertenece al grupo "**admin**".
+Ejecutamos el comando: **python3 -c \'import pty; pty.spawn(\"/bin/bash\")\'**, para obtener una shell interactiva. Luego con el comando "**id**" validamos que pertenece al grupo "**admin**".
 ![](media/media/image31.png)
 
-Nos ubicamos en la archivos del usuario "**gyles**" con el comando:
-cd/home/gyles y luego revisamos el archivo "**.bash_history**", donde se
-almacena el historial de comandos ejecutados por el usuario en la
-shell.
+Nos ubicamos en la archivos del usuario "**gyles**" con el comando: cd/home/gyles y luego revisamos el archivo "**.bash_history**", donde se almacena el historial de comandos ejecutados por el usuario en la shell.
 ![](media/media/image32.png)
 
-Se revisa dicho archivo con el comando: "**cat .bash_history**" y se
-observa que hubo ejecuciones de otros archivos como
-"**/opt/admin_stuff/script.sh**"
-![](media/media/image33.png)
+Se revisa dicho archivo con el comando: "**cat .bash_history**" y se observa que hubo ejecuciones de otros archivos como "**/opt/admin_stuff/script.sh**" ![](media/media/image33.png)
 ![](media/media/image34.png)
 
-Se analiza el archivo "**/opt/admin_stuff/script.sh**", observando que
-está configurado para ejecutarse cada minuto mediante un cronjob. El
-script define dos variables que apuntan a scripts de respaldo
-**(/usr/local/bin/main_backup.sh** y **/usr/local/sbin/dev_backup.sh**),
-los cuales son ejecutados posteriormente.
+Se analiza el archivo "**/opt/admin_stuff/script.sh**", observando que está configurado para ejecutarse cada minuto mediante un cronjob. El script define dos variables que apuntan a scripts de respaldo **(/usr/local/bin/main_backup.sh** y **/usr/local/sbin/dev_backup.sh**), los cuales son ejecutados posteriormente.
 ![](media/media/image35.png)
 
-Se verifica que el archivo "**/usr/local/bin/main_backup.sh**" posee
-permisos de escritura para el grupo admin, como se observa en la salida
-de ls -la. Esto indica que usuarios pertenecientes a dicho grupo pueden
-modificar el
-script.
+Se verifica que el archivo "**/usr/local/bin/main_backup.sh**" posee permisos de escritura para el grupo admin, como se observa en la salida de ls -la. Esto indica que usuarios pertenecientes a dicho grupo pueden modificar el script.
 ![](media/media/image36.png)
 
 Con el comando: **echo '#!/bin/bash' \> /usr/local/bin/main_backup.sh**,
@@ -237,9 +153,7 @@ darle todos los permisos, sin embargo al no ser dueño del archivo no se
 permitió.
 ![](media/media/image37.png)
 
-Luego de 1 min con el comando "**ls -l /bin/bash**" se verifica que el
-SUID está activado. Luego se ejecuta el comando "**/bin/bash -p**" para
-escalar a root, -p significa: "preservar privilegios".
+Luego de 1 min con el comando "**ls -l /bin/bash**" se verifica que el SUID está activado. Luego se ejecuta el comando "**/bin/bash -p**" para escalar a root, -p significa: "preservar privilegios". 
 ![](media/media/image38.png)
 
 Nos dirigimos al directorio "root" y se encuentra la 2da Flag:
