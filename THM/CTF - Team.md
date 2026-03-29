@@ -34,7 +34,6 @@ Se agrega lo siguiente en el archivo /etc/hosts para que resuelva: 10.65.139.182
 
 Verificas que este correctamente agregado en el archivo: /etc/host. 
 Comando: cat /etc/hosts \| grep "team.thm".
-
 ![](media/media/image10.png)
 
 Cargamos en el navegador el dominio "team.thm" y nos carga la página web.
@@ -53,7 +52,8 @@ Como información adicional, un Hint de la Flag nos indica que hay un sitio llam
 Se realiza una busqueda de subdominios que tengan la palabra "dev". Comando: ffuf -u http://team.thm -H \"Host: FUZZ.team.thm\" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fc 404 -mc 200 \| grep \"dev\" 
 ![](media/media/image16.png)
 
-Se toma el primero y se agrega en el archivo: /etc/hosts para poder resolverlo con la misma IP Objetivo. Luego verifica con el comando: cat /etc/hosts \| grep "team.thm"
+Se toma el primero y se agrega en el archivo: /etc/hosts para poder resolverlo con la misma IP Objetivo. Luego verifica con el comando: cat /etc/hosts \| grep "team.thm".
+
 ![](media/media/image17.png)
 
 Se carga el subdominio + dominio: "dev.team.thm" en el navegador y se observa un enlace web vinculado.
