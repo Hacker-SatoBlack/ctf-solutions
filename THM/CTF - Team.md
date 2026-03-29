@@ -84,7 +84,8 @@ Se crea el archivo "id_rsa" y se pega la clave privada ssh encontrada. Comandos:
 Se cambia privilegios al archivo "id_rsa" para que sea accesible únicamente por el usuario del Kali (Comando: "**chmod 600 idrsa**"). Luego de accede directamente por ssh con el comando: "**ssh -i id_rsa dale@10.65.139.182**".
 ![](media/media/image27.png)
 
-Una vez dentro, revisamos los archivos que tiene y se encuentra el archivo "**user.txt**", al visualizar su contenido se encuentra la 1ra Flag: **THM{6Y0TXHz7c2d}**.
+Una vez dentro, revisamos los archivos que tiene y se encuentra el archivo "**user.txt**", al visualizar su contenido se encuentra la 1ra Flag: **THM{6Y0TXHz7c2d}**
+
 ![](media/media/image28.png)
 
 Se escribe el comando "**sudo -l**" para listar qué comandos puedes ejecutar como sudo y se encuentra la ruta "**/home/gyles/admin_checks**" accesible.
