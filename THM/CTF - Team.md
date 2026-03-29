@@ -32,8 +32,8 @@ Visualizamos un indicio de que el dominio: "team.thm" es el que debería resolve
 Se agrega lo siguiente en el archivo /etc/hosts para que resuelva: 10.65.139.182 team.thm. (con el comando: nano /etc/hosts lo editas).
 ![](media/media/image9.png)
 
-Verificas que este correctamente agregado en el archivo: /etc/host. Comando: cat /etc/hosts \| grep "team.thm"
-
+Verificas que este correctamente agregado en el archivo: /etc/host. 
+Comando: cat /etc/hosts \| grep "team.thm".
 ![](media/media/image10.png)
 
 Cargamos en el navegador el dominio "team.thm" y nos carga la página web.
