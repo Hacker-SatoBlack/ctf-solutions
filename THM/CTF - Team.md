@@ -3,16 +3,13 @@
 **CTF de Try Hack Me, paso a paso con explicación de técnicas de
 enumeración, explotación y post-explotación en Linux.**
 
-![](media/media/image1.png){width="5.905555555555556in"
-height="0.8034722222222223in"}
+![](media/media/image1.png)
 
 **La IP objetivo será:
-10.65.139.182.**![](media/media/image2.png){width="5.905555555555556in"
-height="0.6069444444444444in"}
+10.65.139.182.**![](media/media/image2.png)
 
 Se Completa la 1er pregunta debido a que no solicita ningún
-dato.![](media/media/image3.png){width="5.905555555555556in"
-height="2.36875in"}
+dato.![](media/media/image3.png)
 
 Se puebra conexión hacia la IP
 objetivo.![](media/media/image4.png){width="5.905555555555556in"
