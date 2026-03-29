@@ -12,6 +12,7 @@ Se Completa la 1er pregunta debido a que no solicita ningún dato.
 ![](media/media/image3.png)
 
 Se prueba conexión hacia la IP objetivo.
+
 ![](media/media/image4.png)
 
 Se realiza la búsqueda de todos los puertos con nmap. (nmap -p- 10.65.139.182). Se encontró 3 puertos abiertos (FTP 21, SSH 22 y HTTP 80)
