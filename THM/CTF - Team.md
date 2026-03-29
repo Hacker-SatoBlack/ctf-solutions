@@ -123,6 +123,7 @@ Con el comando: **chmod +x /usr/local/bin/main_backup.sh**, se intento darle tod
 ![](media/media/image37.png)
 
 Luego de 1 min con el comando "**ls -l /bin/bash**" se verifica que el SUID está activado. Luego se ejecuta el comando "**/bin/bash -p**" para escalar a root, -p significa: "preservar privilegios". 
+
 ![](media/media/image38.png)
 
 Nos dirigimos al directorio "root" y se encuentra la 2da Flag: **THM{fhqbznavfonq}**
