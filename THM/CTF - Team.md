@@ -105,6 +105,7 @@ Nos ubicamos en la archivos del usuario "**gyles**" con el comando: cd/home/gyle
 ![](media/media/image32.png)
 
 Se revisa dicho archivo con el comando: "**cat .bash_history**" y se observa que hubo ejecuciones de otros archivos como "**/opt/admin_stuff/script.sh**"
+
 ![](media/media/image33.png)
 ![](media/media/image34.png)
 
