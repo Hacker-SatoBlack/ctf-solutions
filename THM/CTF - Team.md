@@ -5,8 +5,7 @@ enumeración, explotación y post-explotación en Linux.**
 
 ![](media/media/image1.png)
 
-**La IP objetivo será:
-10.65.139.182.**
+**La IP objetivo será:10.65.139.182.**
 ![](media/media/image2.png)
 
 Se Completa la 1er pregunta debido a que no solicita ningún dato.
