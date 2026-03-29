@@ -110,6 +110,7 @@ Se revisa dicho archivo con el comando: "**cat .bash_history**" y se observa que
 ![](media/media/image34.png)
 
 Se analiza el archivo "**/opt/admin_stuff/script.sh**", observando que está configurado para ejecutarse cada minuto mediante un cronjob. El script define dos variables que apuntan a scripts de respaldo **(/usr/local/bin/main_backup.sh** y **/usr/local/sbin/dev_backup.sh**), los cuales son ejecutados posteriormente.
+
 ![](media/media/image35.png)
 
 Se verifica que el archivo "**/usr/local/bin/main_backup.sh**" posee permisos de escritura para el grupo admin, como se observa en la salida de ls -la. Esto indica que usuarios pertenecientes a dicho grupo pueden modificar el script.
@@ -118,6 +119,7 @@ Se verifica que el archivo "**/usr/local/bin/main_backup.sh**" posee permisos de
 Con el comando: **echo '#!/bin/bash' \> /usr/local/bin/main_backup.sh**, sobrescribe el script main_backup.sh y lo convierte en un script bash vacío, con la línea inicial #!/bin/bash.
 Con el comando: **echo 'chmod +s /bin/bash' \>\> /usr/local/bin/main_backup.sh**, activará el SUID bit, que significa que cuando alguien ejecute /bin/bash, se ejecutará con los permisos del dueño del archivo, que normalmente es root.
 Con el comando: **chmod +x /usr/local/bin/main_backup.sh**, se intento darle todos los permisos, sin embargo al no ser dueño del archivo no se permitió.
+
 ![](media/media/image37.png)
 
 Luego de 1 min con el comando "**ls -l /bin/bash**" se verifica que el SUID está activado. Luego se ejecuta el comando "**/bin/bash -p**" para escalar a root, -p significa: "preservar privilegios". 
