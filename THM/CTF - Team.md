@@ -104,7 +104,8 @@ Ejecutamos el comando: **python3 -c \'import pty; pty.spawn(\"/bin/bash\")\'**, 
 Nos ubicamos en la archivos del usuario "**gyles**" con el comando: cd/home/gyles y luego revisamos el archivo "**.bash_history**", donde se almacena el historial de comandos ejecutados por el usuario en la shell.
 ![](media/media/image32.png)
 
-Se revisa dicho archivo con el comando: "**cat .bash_history**" y se observa que hubo ejecuciones de otros archivos como "**/opt/admin_stuff/script.sh**" ![](media/media/image33.png)
+Se revisa dicho archivo con el comando: "**cat .bash_history**" y se observa que hubo ejecuciones de otros archivos como "**/opt/admin_stuff/script.sh**"
+![](media/media/image33.png)
 ![](media/media/image34.png)
 
 Se analiza el archivo "**/opt/admin_stuff/script.sh**", observando que está configurado para ejecutarse cada minuto mediante un cronjob. El script define dos variables que apuntan a scripts de respaldo **(/usr/local/bin/main_backup.sh** y **/usr/local/sbin/dev_backup.sh**), los cuales son ejecutados posteriormente.
