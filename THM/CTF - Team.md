@@ -14,7 +14,8 @@ dato.
 ![](media_team/media/image3.png)
 
 Se puebra conexión hacia la IP
-objetivo.![](media_team/media/image4.png)
+objetivo.
+![](media_team/media/image4.png)
 
 Se realiza la búsqueda de todos los puertos con nmap. (nmap -p-
 10.65.139.182). Se encontró 3 puertos abiertos (FTP 21, SSH 22 y HTTP
