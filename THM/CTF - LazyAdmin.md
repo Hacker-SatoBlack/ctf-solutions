@@ -4,6 +4,7 @@
 enumeración, explotación y post-explotación en Linux.**
 
 ![](media_lazyadmin/media/image1.png)
+
 **La IP objetivo será: 10.67.167.106**
 
 ![](media_lazyadmin/media/image2.png)
