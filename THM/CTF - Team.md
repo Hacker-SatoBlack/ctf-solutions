@@ -194,6 +194,7 @@ está configurado para ejecutarse cada minuto mediante un cronjob. El
 script define dos variables que apuntan a scripts de respaldo
 **(/usr/local/bin/main_backup.sh** y **/usr/local/sbin/dev_backup.sh**),
 los cuales son ejecutados posteriormente.
+
 ![](media_team/media/image35.png)
 
 Se verifica que el archivo "**/usr/local/bin/main_backup.sh**" posee
