@@ -13,8 +13,8 @@ Se Completa la 1er pregunta debido a que no solicita ningún
 dato.
 ![](media_team/media/image3.png)
 
-Se puebra conexión hacia la IP
-objetivo.
+Se puebra conexión hacia la IP objetivo.
+
 ![](media_team/media/image4.png)
 
 Se realiza la búsqueda de todos los puertos con nmap. (nmap -p-
