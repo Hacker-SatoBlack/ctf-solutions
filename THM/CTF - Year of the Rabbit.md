@@ -38,6 +38,7 @@ Se carga la pagina via web y se observa que es un "**directory
 listing**". Se revisará el archivo "**style.css**"
 
 ![](media_year_of_the_rabbit/media/image7.png)
+
 Se observa que hay un archivo oculto **.php** llamado:
 "**/sup3r_s3cr3t_fl4g.php**"
 
