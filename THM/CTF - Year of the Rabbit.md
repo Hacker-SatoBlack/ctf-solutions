@@ -4,6 +4,7 @@ CTF de Try Hack Me, paso a paso con explicación de técnicas de
 enumeración, explotación y post-explotación en Linux.
 
 ![](media_year_of_the_rabbit/media/image1.png)
+
 **La IP objetivo será: 10.65.169.178**
 
 ![](media_year_of_the_rabbit/media/image2.png)
