@@ -51,7 +51,6 @@ javascript.
 ![](media_year_of_the_rabbit/media/image9.png)
 
 Se abrió la configuración del navegador Mozilla en otra ventana
-
 (**about:config**), se filtró por la palabra "**javascript**" y se
 deshabilitó, ahora ya esta en
 "**false**".
